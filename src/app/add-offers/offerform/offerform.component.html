@@ -1,0 +1,93 @@
+<button mat-icon-button style="float:right;margin:5px;" matDialogClose>
+  <mat-icon>close</mat-icon>
+</button>
+<h2>Add your Bid</h2>
+<hr>
+
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <div class="formbold-input-flex">
+      <div>
+        <label for="bidId" class="formbold-form-label">Bid ID</label>
+        <select name="bidId" id="bidId" class="formbold-form-input" (change)="onCallChange($event.target.value)">
+          <option *ngFor="let call of calls" [value]="call.callId">{{ call.callId }}</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="description" class="formbold-form-label">Bid Description</label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          placeholder="Describe your bid"
+          class="formbold-form-input"
+          [(ngModel)]="formData.description"
+          disabled
+        />
+      </div>
+    </div>
+    <div class="formbold-input-flex">
+      <div>
+        <label for="companyId" class="formbold-form-label">Company ID</label>
+        <input
+          type="text"
+          name="companyId"
+          id="companyId"
+          placeholder="Company ID"
+          class="formbold-form-input"
+          [(ngModel)]="formData.companyId"
+          disabled
+        />
+      </div>
+      <div>
+        <label for="companyName" class="formbold-form-label">Company Name</label>
+        <input
+          type="text"
+          name="companyName"
+          id="companyName"
+          placeholder="Enter Company name"
+          class="formbold-form-input"
+          [(ngModel)]="formData.companyName"
+          disabled
+        />
+      </div>
+      <div>
+        <label class="formbold-form-label">Company Office</label>
+        <input
+          placeholder="Address"
+          class="formbold-form-input"
+          name="companyOffice"
+          id="companyOffice"
+          [(ngModel)]="formData.companyOffice"
+          disabled
+        />
+      </div>
+    </div>
+    <div class="formbold-input-flex">
+      <div>
+        <label for="email" class="formbold-form-label">Submitted By</label>
+        <input
+          type="email"
+          name="submittedBy"
+          id="submittedBy"
+          placeholder="example@email.com"
+          class="formbold-form-input"
+          [(ngModel)]="formData.submittedBy"
+          disabled
+        />
+      </div>
+      <div>
+        <label for="dob" class="formbold-form-label">Date Submitted</label>
+        <input type="date" name="dateSubmitted" id="dateSubmitted" class="formbold-form-input" [(ngModel)]="formData.dateSubmitted" disabled />
+      </div>
+    </div>
+    <div class="formbold-form-file-flex">
+      <label for="upload" class="formbold-form-label">Upload Your Document</label>
+      <input type="file" name="upload" id="upload" class="formbold-form-file" (change)="onFileSelected($event)" />
+    </div>
+    <mat-dialog-actions>
+      <button type="submit" class="formbold-btn">Apply Now</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

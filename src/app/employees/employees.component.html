@@ -1,0 +1,63 @@
+<h2 class="bi">My Requests</h2>
+<hr>
+<div class="container">
+  <div class="row justify-content-end mb-3">
+    <div class="col-auto">
+      <mat-dialog-actions>
+        <input type="search" [(ngModel)]="searchtext" id="form1" class="form-control" placeholder="Search" aria-label="search" (input)="filterRequests()"/>
+      </mat-dialog-actions>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-bordered table-hover dt-responsive">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Position</th>
+            <th scope="col">Department</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Delivery Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through the filteredRequestData array to dynamically populate table rows -->
+          <tr *ngFor="let request of filteredRequestData">
+            <td>{{ request.userName }}</td>
+            <td>{{ request.userEmail }}</td>
+            <td>{{ request.roleName }}</td>
+            <td>{{ request.departmentName }}</td>
+            <td *ngIf="!request.editing">{{ request.title }}</td>
+            <td *ngIf="!request.editing">{{ request.description }}</td>
+            <td *ngIf="!request.editing">{{ request.deadline }}</td>
+            <td *ngIf="request.statusId === 1"><button class="pending-button">Pending</button></td>
+            <td *ngIf="request.statusId === 2"><button class="approved-button">Approved</button></td>
+            <td *ngIf="!request.editing">
+              <button mat-icon-button color="primary" (click)="toggleEdit(request)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+            <td *ngIf="request.editing">
+              <input type="text" [(ngModel)]="request.titleEdit">
+            </td>
+            <td *ngIf="request.editing">
+              <input type="text" [(ngModel)]="request.descriptionEdit">
+            </td>
+            <td *ngIf="request.editing">
+              <input type="date" [(ngModel)]="request.deadlineEdit">
+            </td>
+            <td *ngIf="request.editing">
+              <button mat-icon-button color="primary" (click)="saveEdit(request)">
+                <mat-icon>save</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+
+    <!-- ======= Sidebar ======= -->
+
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home" >
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+         <!--End Dashboard Nav -->
+
+
+<li class="nav-item">
+    
+    <span class="nav-heading mt-4"  >**</span>
+    
+ </li>
+     
+ <!--<li class="nav-item">
+    <a class="nav-link" routerLink="">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Call of Bids</span>
+    </a>
+</li>-->
+<li class="nav-item" >
+    <a *ngIf="currentuser?.role=='SADMIN'" class="nav-link collapsed" (click)="ShowHideCollapse('bids-nav')" data-bs-target="#bids-nav" data-bs-toggle="collapse">
+        <i class="bi bi-file-earmark-text" ></i><span>Call of Bids</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="bids-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li>
+            <!-- Adjust routerLink as needed -->
+            <a (click)="goTo('add-call')" routerLinkActive="active"  >
+                <i class="bi bi-circle" ></i><span>Add call of Bids</span>
+            </a>
+            
+
+            
+            <!-- Add more options as needed -->
+        </li>
+    </ul>
+</li>
+<li class="nav-item">
+    <a *ngIf="currentuser?.role=='Admin' || currentuser?.role=='SADMIN'|| currentuser?.role=='Employee'"  class="nav-link collapsed" (click)="ShowHideCollapse('users-nav')" data-bs-target="#users-nav" data-bs-toggle="collapse">
+        <i class="bi bi-person"></i><span>Employees</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li>
+            <a *ngIf="currentuser?.role=='Admin' || currentuser?.role=='SADMIN'" (click)="goTo('user-list')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Employees List</span>
+            </a>
+            <a *ngIf="currentuser?.role=='Admin' || currentuser?.role=='SADMIN'" (click)="goTo('add-request')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Add Requests</span>
+            </a>
+            <a *ngIf="currentuser?.role=='SADMIN'" (click)="goTo('user-request')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Employees Requests</span>
+            </a>
+            <a *ngIf="currentuser?.role=='Admin' || currentuser?.role=='SADMIN' || currentuser?.role=='Employee'"  (click)="goTo('user-overview')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Employees Overview</span>
+            </a>
+            <!-- Add more options as needed -->
+        </li>
+    </ul>
+</li>
+<li class="nav-item">
+    <a *ngIf=" currentuser?.role=='SADMIN' ||currentuser?.phoneNumber" class="nav-link collapsed" (click)="ShowHideCollapse('companies-nav')" data-bs-target="#companies-nav" data-bs-toggle="collapse">
+        <i class="bi bi-building"></i><span>Campanies</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li>
+            <a *ngIf="currentuser?.phoneNumber || currentuser?.address || currentuser?.role=='SADMIN'" (click)="goTo('add-offers')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Add Offers</span>
+            </a>
+            <a *ngIf="currentuser?.role=='SADMIN'" (click)="goTo('Campany-list')" routerLinkActive="active">
+                <i class="bi bi-circle"></i><span>Campany List</span>
+            </a>
+           
+            
+
+            <!-- Add more options as needed -->
+        </li>
+    </ul>
+</li>
+
+    </ul>
+
+<!--End Sidebar-->

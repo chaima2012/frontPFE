@@ -1,0 +1,40 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <!-- Tabs Titles -->
+    <h2 [ngClass]="{'active': activeTab === 'signInTab', 'inactive': activeTab !== 'signInTab'}" (click)="toggleTab('signInTab')"></h2>
+    <h2 [ngClass]="{'active': activeTab === 'signUpTab', 'inactive': activeTab !== 'signUpTab'}" (click)="toggleTab('signUpTab')"></h2>
+    <h2 [ngClass]="{'active': activeTab === 'signTab', 'inactive': activeTab !== 'signTab'}" (click)="toggleTab('signTab')"></h2>
+
+
+    
+
+    <!-- Sign In Form -->
+    <form id="signInForm" class="form-tab" [hidden]="activeTab !== 'signInTab'">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Enter your Email Addres">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter your Password">
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="Authenticate()">
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signUpForm" class="form-tab" [hidden]="activeTab !== 'signUpTab'">
+      <input type="text" id="signup_username" class="fadeIn second" name="signup_username" placeholder="Enter your Email Address">
+      <input type="password" id="signup_password" class="fadeIn third" name="signup_password" placeholder="Enter Your Password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+    <form id="signForm" class="form-tab" [hidden]="activeTab !== 'signTab'">
+      <input type="text" id="sign_username" class="fadeIn second" name="sign_username" placeholder="Enter your Email Address">
+      <input type="password" id="sign_password" class="fadeIn third" name="sign_password" placeholder="Enter your Password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Password -->
+    <div id="formFooter">
+      <p class="small mb-0">Don't have account? <a routerLink="/register" routerLinkActive="active"  >
+                  <i class="small mb-0"></i><span>Create Account</span>
+              </a>
+          </p>
+  </div> 
+  </div>
+</div>

@@ -1,0 +1,96 @@
+.container{
+  font-family: 'Poppins', sans-serif; 
+
+}
+*{
+box-sizing:inherit;
+}
+p{
+  text-align: center;
+}
+body{
+background: white;
+width:90%;
+max-width: 800px;
+margin:50px auto;
+font-family: Calibri, Arial, sans-serif;
+padding:20px;
+}*
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+.bi {
+  font-family: 'Poppins', sans-serif; 
+  color: #161616; 
+  margin-bottom: 10px; 
+  letter-spacing: 1px; 
+}
+label{
+display:block;
+margin:1em 0 .2em;
+}
+/* single-line text, checkbox, and button */
+input, select, textarea{
+display:block;
+width:100%;
+padding:.3em;
+font-size:20px;
+background-color:#fbfbfb;
+border:solid 1px #CCC;
+resize:vertical;
+}
+textarea{
+min-height:180px;
+}
+select{
+color:#6a64f1;
+}
+option{
+color:#6a64f1;
+background: lavenderBlush;
+}
+input[type=checkbox]{
+display:inline;
+width:auto;
+color:red;
+}
+
+input[type=submit]{
+background:#6a64f1;
+margin:1em 0 0;
+color:white;
+border:none;
+border-radius:8px;
+transition:all .3s ease-out;
+}
+
+input:focus,
+input:hover,
+select:focus,
+select:hover,
+textarea:focus,
+textarea:hover{
+background: #6b64f12a;
+}
+
+/* hover and focus states */
+input[type=submit]:hover,
+input[type=submit]:focus{
+background: rgb(15, 164, 223);
+outline:none;
+}
+
+@media screen and (min-width:600px) {
+/*  make the form 2 columns */
+form:after{
+  content:'';
+  display:block;
+  clear:both;
+}
+.column{
+  width:50%;
+  padding:1em;
+  float:left;
+}
+}

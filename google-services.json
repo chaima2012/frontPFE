@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "516063683249",
+    "firebase_url": "https://notifications-f5c46.firebaseio.com",
+    "project_id": "notifications-f5c46",
+    "storage_bucket": "notifications-f5c46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516063683249:android:799a31cf621133e206b890",
+        "android_client_info": {
+          "package_name": "app.stb.digicartevisite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZDimJ_QmmdUpxOU6bf9IuGpbd2nJyw14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516063683249:android:a1ebffd1c3a092f206b890",
+        "android_client_info": {
+          "package_name": "app.stb.digiepargne"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZDimJ_QmmdUpxOU6bf9IuGpbd2nJyw14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516063683249:android:67872901015bbcac06b890",
+        "android_client_info": {
+          "package_name": "app.stb.digiopa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZDimJ_QmmdUpxOU6bf9IuGpbd2nJyw14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516063683249-iu5k3dvd5mldnj9lvol6v21mgp7rbjcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

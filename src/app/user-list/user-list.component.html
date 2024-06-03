@@ -1,0 +1,101 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<h2 class="bi">Employees List</h2>
+<div class="container" [@fadeInOut]>
+  <div class="row justify-content-end mb-3">
+    <div class="col-auto">
+      <mat-dialog-actions>
+        <input type="search" [(ngModel)]="searchtext" (ngModelChange)="filterUsers()" id="form1" class="form-control" placeholder="Search" aria-label="search" />
+      </mat-dialog-actions>
+    </div>
+    <div class="col-auto">
+      <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="openAddUserDialog()">Add New Users</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table user-list">
+        <thead>
+          <tr>
+            <th><span>User</span></th>
+            <th><span>Position</span></th>
+            <th><span>Department</span></th>
+            <th><span>Email</span></th>
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+              <ng-container *ngIf="!isEditing(user); else editName">
+                <a class="user-link">{{ user.name }}</a>
+              </ng-container>
+              <ng-template #editName>
+                <input type="text" [(ngModel)]="user.name" />
+              </ng-template>
+              <span class="user-subhead">{{ user.role }}</span>
+            </td>
+            <td>
+              <ng-container *ngIf="!isEditing(user); else editRole">
+                {{ user.role }}
+              </ng-container>
+              <ng-template #editRole>
+                <select [(ngModel)]="user.role">
+                  <option value="Admin">Admin</option>
+                  <option value="Manager">Manager</option>
+                  <option value="Employee">Employee</option>
+                </select>
+              </ng-template>
+            </td>
+            <td class="text-center">
+              <ng-container *ngIf="!isEditing(user); else editDepartment">
+                <span class="label label-default">{{ user.department }}</span>
+              </ng-container>
+              <ng-template #editDepartment>
+                <select [(ngModel)]="user.department">
+                  <option value="Human Resources">Human Resources</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Marketing">Marketing</option>
+                </select>
+              </ng-template>
+            </td>
+            <td>
+              <ng-container *ngIf="!isEditing(user); else editEmail">
+                <a>{{ user.email }}</a>
+              </ng-container>
+              <ng-template #editEmail>
+                <input type="email" [(ngModel)]="user.email" />
+              </ng-template>
+            </td>
+            <td style="width: 20%;">
+              <div class="action-buttons">
+                <a class="table-link" (click)="toggleEdit(user)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i [ngClass]="{'fa-pencil': !isEditing(user), 'fa-check': isEditing(user)}" class="fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                <a class="table-link danger" (click)="deleteUser(user.userId)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  .action-buttons {
+    display: flex;
+    gap: 10px; 
+  }
+</style>

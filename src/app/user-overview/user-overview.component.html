@@ -1,0 +1,37 @@
+<h2 class="bi">Add Your Demands</h2>
+<h5 class="bi"> => Complete the form to add your demands</h5>
+<div class="row">
+    <div class="col-md-16 col-md-offset-3">
+        <form id="msform" (ngSubmit)="onSubmit(formData.twitter, formData.facebook, formData.cpass)">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li [class.active]="currentStep === 1">Personal Details</li>
+                <li [class.active]="currentStep === 2">Add new Request</li>
+                <li [class.active]="currentStep === 3">More informations</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset *ngIf="currentStep === 1">
+                <h2 class="fs-title">Personal Details</h2>
+                <input type="text" name="fname" disabled [(ngModel)]="formData.fname" id="name" placeholder="Username"/>
+                <input type="text" name="lname" [(ngModel)]="formData.lname" disabled id="email" placeholder="Email"/>
+                <input type="button" name="next" class="next action-button" (click)="nextStep()" value="Next"/>
+            </fieldset>
+            <fieldset *ngIf="currentStep === 2">
+                <h2 class="fs-title">Add more Information</h2>
+                <input type="text" name="position" [(ngModel)]="formData.position" id="pos" disabled placeholder="Position"/>
+                <input type="text" name="department" [(ngModel)]="formData.department" id="dep" disabled placeholder="Department"/>
+                <input type="button" name="previous" class="previous action-button-previous" (click)="previousStep()" value="Previous"/>
+                <input type="button" name="next" class="next action-button" (click)="nextStep()" value="Next"/>
+            </fieldset>
+            <fieldset *ngIf="currentStep === 3">
+                <h2 class="fs-title">Add Requests</h2>
+                <h3 class="fs-subtitle">Please add title for your request, description and the delivery date</h3>
+                <input type="text" name="title" [(ngModel)]="formData.twitter" placeholder="Title"/>
+                <input type="text" name="description" [(ngModel)]="formData.facebook" placeholder="Description"/>
+                <input type="date" name="ddate" [(ngModel)]="formData.cpass" placeholder="Delivery Date"/>
+                <input type="button" name="previous" class="previous action-button-previous" (click)="previousStep()" value="Previous"/>
+                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<section class="section dashboard">
+    
+    <div class="row" *ngIf="hasAccessStat">
+        <div class="col-4">
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient" >
+              
+                    <img src="assets/img/visionglobal.png" class="img-fluid rounded-start"alt="vision global">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Vision Global</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+        <div class="col-4">
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient/fluxdepaiement">
+              
+                    <img src="assets/img/fluxpaiement.png" class="img-fluid rounded-start"alt="...">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Flux de paiement</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+        <div class="col-4">
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient/cheques">
+              
+                    <img src="assets/img/cheques.png" class="img-fluid rounded-start"alt="...">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Chèques</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+    </div>
+
+    <div class="row"  *ngIf="hasAccessStat">
+        <div class="col-4">
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient/engagements">
+              
+                    <img src="assets/img/engagements.png" class="img-fluid rounded-start"alt="...">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Engagements</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+        <div class="col-4" >
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient/bancaireetrangere">
+              
+                    <img src="assets/img/bancaireetrangere.png" class="img-fluid rounded-start"alt="...">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Bancaire étranger</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+        <div class="col-4">
+            <div class="card cardDash mb-3" routerLink="/home/dashboardclient/tpe">
+              
+                    <img src="assets/img/tpe.png" class="img-fluid rounded-start"alt="...">
+
+
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">TPE</h5>
+                    </div>
+
+              </div>
+
+       
+        </div>
+    </div>
+  
+
+
+</section>

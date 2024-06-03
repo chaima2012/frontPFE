@@ -1,0 +1,15 @@
+.nav-item1 {
+    /* Add your styles for nav-item1 */
+    a.nav-link {
+          font-family: 'Poppins', sans-serif;
+
+      color: rgb(18, 18, 83); 
+      transition: color 0.3s ease;
+      margin-right: 15px;
+      &:hover {
+        background-color:#6a64f1; /* Change color to white on hover */
+        cursor:pointer;
+      }
+    }
+  }
+ 

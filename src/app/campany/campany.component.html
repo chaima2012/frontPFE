@@ -1,0 +1,41 @@
+<h2 class="bi">My Bids</h2>
+<hr>
+<div class="container">
+  <div class="col-auto">
+    <mat-dialog-actions>
+      <input type="search" [(ngModel)]="searchtext" id="form1" class="form-control" placeholder="Search" aria-label="search" (input)="filterBids()"/>
+    </mat-dialog-actions>
+  </div>
+</div>
+<div class="table-responsive">
+  <!--- Projects table -->
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Bid ID</th>
+        <th scope="col">Description</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Office</th>
+        <th scope="col">Document</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bid of filteredBids">
+        <td>{{ bid.callId }}</td>
+        <td>{{ bid.description }}</td>
+        <td>{{ bid.companyId }}</td>
+        <td>{{ bid.companyName }}</td>
+        <td>{{ bid.companyOffice }}</td>
+        <td>{{ bid.document }}</td>
+        <td>
+          <button class="pending-button">{{getStatus( bid.statusUserId)}} </button>
+          <button class="approved-button">{{getStatus( bid.statusUserId)}} </button>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

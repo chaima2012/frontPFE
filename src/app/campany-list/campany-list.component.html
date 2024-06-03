@@ -1,0 +1,93 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<h2 class="bi">Companies List</h2>
+<div class="container" [@fadeInOut]>
+  <div class="row justify-content-end mb-3">
+    <div class="col-auto">
+      <mat-dialog-actions>
+        <input type="search" [(ngModel)]="searchtext" (ngModelChange)="filterCompanies()" id="form1" class="form-control" placeholder="Search" aria-label="search" />
+      </mat-dialog-actions>
+    </div>
+    <div class="col-auto">
+      <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="OpenDialog(); openAddCompanyDialog()">Add New Company</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table user-list">
+        <thead>
+          <tr>
+            <th><span>Company ID</span></th>
+            <th><span>Company Name</span></th>
+            <th><span>Email</span></th>
+            <th><span>Company Phone Number</span></th>
+            <th><span>Address</span></th>
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let company of filteredCompanies">
+            <td>{{ company.userId }}</td>
+            <td>
+              <ng-container *ngIf="!isEditing(company); else editName">
+                <a class="user-link">{{ company.name }}</a>
+              </ng-container>
+              <ng-template #editName>
+                <input type="text" [(ngModel)]="company.name" />
+              </ng-template>
+            </td>
+            <td>
+              <ng-container *ngIf="!isEditing(company); else editEmail">
+                <a>{{ company.email }}</a>
+              </ng-container>
+              <ng-template #editEmail>
+                <input type="email" [(ngModel)]="company.email" />
+              </ng-template>
+            </td>
+            <td>
+              <ng-container *ngIf="!isEditing(company); else editPhone">
+                {{ company.phoneNumber }}
+              </ng-container>
+              <ng-template #editPhone>
+                <input type="text" [(ngModel)]="company.phoneNumber" />
+              </ng-template>
+            </td>
+            <td>
+              <ng-container *ngIf="!isEditing(company); else editAddress">
+                {{ company.address }}
+              </ng-container>
+              <ng-template #editAddress>
+                <input type="text" [(ngModel)]="company.address" />
+              </ng-template>
+            </td>
+            <td style="width: 20%;">
+              <div class="action-buttons">
+                <a class="table-link" (click)="toggleEdit(company)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i [ngClass]="{'fa-pencil': !isEditing(company), 'fa-check': isEditing(company)}" class="fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                <a class="table-link danger" (click)="updateStatus(company.userId, 3)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  .action-buttons {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+</style>

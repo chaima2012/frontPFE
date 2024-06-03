@@ -1,0 +1,52 @@
+<h2 class="bi">List Of New Employees</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table user-list">
+        <thead>
+          <tr>
+            <th><span>User</span></th>
+            <th><span>Position</span></th>
+            <th><span>Department</span></th>
+            <th><span>Email</span></th>
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>
+              <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+              <a href="#" class="user-link">{{ user.name }}</a>
+              <span class="user-subhead">{{ user.role }}</span>
+            </td>
+            <td>
+              {{ user.role }}
+            </td>
+            <td class="text-center">
+              <span class="label label-default">{{ user.department }}</span>
+            </td>
+            <td>
+              <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+            </td>
+            <td style="width: 20%;">
+              <div class="action-buttons">
+                <a class="table-link" (click)="updateUserStatus(user.userId, true)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+                <a class="table-link danger" (click)="updateUserStatus(user.userId, false)">
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

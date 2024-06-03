@@ -1,0 +1,108 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+// Global Styles
+* {
+  box-sizing: border-box;
+}
+.table{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+// Container Styles
+.container {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+// Button Styles
+.box {
+  font-family: 'Poppins', sans-serif;
+  background-color: #6a64f1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box:hover {
+  background-color: #6a64f1;
+}
+
+// Animation for Table Rows
+@keyframes tableRowAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+td{
+  font-family: 'Poppins', sans-serif;
+
+}
+tr {
+  animation: tableRowAnimation 0.5s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+// Form Styles
+.form-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f5ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.form-container:hover {
+  transform: scale(1.05);
+}
+.thead-light{
+  font-family: 'Poppins', sans-serif;
+
+  color: #6a64f1 }
+.form-control {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #6a64f1;
+  border-radius: 4px;
+
+}
+.btn-primary {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  background-color: #6a64f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+// Edit and Close Icon Styles
+.icon {
+  font-family: initial; // Override font family for icons
+}

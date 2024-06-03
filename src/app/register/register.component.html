@@ -1,0 +1,41 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 [ngClass]="{'active': activeTab === 'signInTab', 'inactive': activeTab !== 'signInTab'}" (click)="toggleTab('signInTab')">Employee</h2>
+    <h2 [ngClass]="{'active': activeTab === 'signUpTab', 'inactive': activeTab !== 'signUpTab'}" (click)="toggleTab('signUpTab')">Campany</h2>
+
+    <!-- Employee Registration Form -->
+    <form [formGroup]="registerForm" (ngSubmit)="registerEmployee()" id="signInForm" class="form-tab" [hidden]="activeTab !== 'signInTab'">
+      <input type="text" id="name" class="fadeIn second" formControlName="name" placeholder="Enter your Name">
+      <input type="text" id="emailE" class="fadeIn second" formControlName="email" placeholder="Enter your Email Address">
+      <input type="password" id="passwordE" class="fadeIn third" formControlName="password" placeholder="Enter your Password">
+      <select formControlName="position">
+        <option>Admin</option>
+        <option>Manager</option>
+        <option value="Employee" selected>Employee</option>
+      </select>
+      <select formControlName="department">
+        <option value="Finance" [defaultSelected]="true">Finance</option>
+        <option>Human Resources</option>
+        <option>Marketing</option>
+      </select>
+      <input type="submit" class="fadeIn fourth" value="Sign Up">
+    </form>
+
+    <!-- Campany Registration Form -->
+    <form [formGroup]="CampanyRegisterForm" (ngSubmit)="registerCampany()" id="signUpForm" class="form-tab" [hidden]="activeTab !== 'signUpTab'">
+      <input type="text" id="CampanyName" class="fadeIn second" formControlName="CompanyName" placeholder="Enter Campany Name">
+      <input type="text" id="emailC" class="fadeIn second" formControlName="email" placeholder="Enter your Email Address">
+      <input type="password" id="passwordC" class="fadeIn third" formControlName="password" placeholder="Enter your Password">
+      <input type="text" id="phoneNumber" class="fadeIn fourth" formControlName="phoneNumber" placeholder="Enter Campany Phone Number">
+      <input type="text" id="address" class="fadeIn fourth" formControlName="address" placeholder="Enter Campany Address">
+      <input type="submit" class="fadeIn fourth" value="Sign Up">
+    </form>
+
+    <!-- Remind Password -->
+    <div id="formFooter">
+      <p class="small mb-0">You already have an account? <a routerLink="/login" routerLinkActive="active">
+        <i class="small mb-0"></i><span>Log In</span></a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Container Styles */
+.container {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.thead-light{
+  font-family: 'Poppins', sans-serif;
+
+  color: #4339ce; /* Blue background color */
+}
+/* Inside your component's SCSS file */
+.bi {
+  font-family: 'Poppins', sans-serif; 
+  color: #161616; 
+  margin-bottom: 10px; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+hr{
+  color:#b1b1db;
+  width:100%;
+}
+
+
+/* Table Styles */
+.table {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Button Styles */
+.mat-icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mat-icon-button:hover {
+  background-color: #e0e0e0;
+}
+.pending-button {
+  background-color: orange; // Sets background color to orange
+  color: white; // Sets text color to white
+  border: none; // Removes border
+  padding: 8px 16px; // Adds padding
+  border-radius: 4px; // Adds border radius
+  cursor: pointer; // Changes cursor to pointer on hover
+}
+
+.pending-button:hover {
+  background-color: darkorange; // Changes background color on hover
+}
+.search-input {
+  border: 1px solid #3498db; /* Blue border */
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+/* Search icon styling */
+.search-icon {
+  color: #3498db; /* Blue color */
+  cursor: pointer;
+}
+.col-auto{
+  margin-left: auto; // This moves the search input to the right within its container
+}

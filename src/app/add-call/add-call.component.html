@@ -1,0 +1,117 @@
+<section class="section profile">
+    <div class="row">
+      <div class="col-xl-16">
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Add new call of bid</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">View call of bid</button>
+              </li>
+            </ul>
+            
+            <div class="tab-content pt-2">
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <form (ngSubmit)="onSubmit(description.value, rq.value, deadline.value, budget.value)">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control custom-textarea" id="description" #description name="description" rows="1" placeholder="Enter the description"></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="title" class="form-label">Required Number</label>
+                      <input type="number" class="form-control" id="rq" #rq name="rq" placeholder="Enter the Required number">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="deadline" class="form-label">Deadline (date type)</label>
+                      <input type="date" class="form-control" id="deadline" #deadline name="deadline">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="budget" class="form-label">Budget</label>
+                      <input type="number" class="form-control" id="budget" #budget name="budget" placeholder="Enter the budget">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+              </div>
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Required Number</th>
+                      <th scope="col">Deadline</th>
+                      <th scope="col">Budget</th>
+                      <th scope="col">Bids</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let call of calls">
+                      <td>{{ call.callId }}</td>
+                      <td>
+                        <ng-container *ngIf="!call.editing; else editingCellDescription">
+                          {{ call.description }}
+                        </ng-container>
+                        <ng-template #editingCellDescription>
+                          <input type="text" class="form-control" [(ngModel)]="call.description">
+                        </ng-template>
+                      </td>
+                      <td>
+                        <ng-container *ngIf="!call.editing; else editingCellRequiredNumber">
+                          {{ call.requiredNumber }}
+                        </ng-container>
+                        <ng-template #editingCellRequiredNumber>
+                          <input type="number" class="form-control" [(ngModel)]="call.requiredNumber">
+                        </ng-template>
+                      </td>
+                      <td>
+                        <ng-container *ngIf="!call.editing; else editingCellDeadline">
+                          {{ call.deadline }}
+                        </ng-container>
+                        <ng-template #editingCellDeadline>
+                          <input type="date" class="form-control" [(ngModel)]="call.deadline">
+                        </ng-template>
+                      </td>
+                      <td>
+                        <ng-container *ngIf="!call.editing; else editingCellBudget">
+                          {{ call.budget }}
+                        </ng-container>
+                        <ng-template #editingCellBudget>
+                          <input type="number" class="form-control" [(ngModel)]="call.budget">
+                        </ng-template>
+                      </td>
+                      
+                      <td>{{ call.bidCount }}</td>
+                      <td>{{ call.userStatus }}</td>
+                      <td>
+                        <button mat-icon-button color="primary" (click)="toggleEdit(call)">
+                          <mat-icon>edit</mat-icon> <!-- Edit icon -->
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteBid(call.callId)">
+                          <mat-icon>close</mat-icon> <!-- Rejected icon -->
+                        </button>
+                        <button mat-icon-button color="primary" *ngIf="call.editing" (click)="updateCall(call)">
+                          <mat-icon>done</mat-icon> <!-- Done icon -->
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-primary ms-auto" (click)="openDialog()">View Bids</button>
+
+              </div>
+            </div><!-- End Bordered Tabs -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

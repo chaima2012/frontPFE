@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-xl-15">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="mb-0" class="bi">Bids Received</h1>
+        </div>
+        <div class="col-auto">
+          <button mat-icon-button style="margin:5px;" matDialogClose>
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <hr>
+      <div class="col text-right">
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" class="form-control" placeholder="Search by description" [(ngModel)]="searchText" (input)="filterBids()">
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <!-- Projects table -->
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Bid ID</th>
+            <th scope="col">Bid Description</th>
+            <th scope="col">Company ID</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Company Office</th>
+            <th scope="col">Document</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bid of filteredBids">
+            <td>{{ bid.callId }}</td>
+            <td>{{ bid.description }}</td>
+            <td>{{ bid.companyId }}</td>
+            <td>{{ bid.companyName }}</td>
+            <td>{{ bid.companyOffice }}</td>
+            <td>
+              <a (click)="downloadDocument(bid.document)">{{ bid.document }}</a>
+            </td>
+            <td>
+              <button mat-icon-button color="primary" (click)="deleteBid(bid)">
+                <mat-icon>done</mat-icon> <!-- Accepted icon -->
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

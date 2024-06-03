@@ -1,0 +1,35 @@
+
+<h2 class="bi">Add Offers</h2>
+<h5 class="bi"> => This is our call of bids list where you can add your offers</h5>
+<div class="container">
+  <div class="row justify-content-end mb-3">
+    <div class="col-xs-12">
+      <table class="table user-list">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>RQ</th>
+            <th>Deadline</th>
+            <th>Budget</th>
+            <th>Add Your Offre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let call of calls">
+            <td>{{ call.callId }}</td>
+            <td>{{ call.description }}</td>
+            <td>{{ call.requiredNumber }}</td>
+            <td>{{ call.deadline }}</td>
+            <td>{{ call.budget }}</td>
+            
+            <td>  <button class="box"  (click)="openDialogg()"> Apply for this call of bid</button></td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
